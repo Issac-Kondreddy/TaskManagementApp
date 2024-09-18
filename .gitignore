@@ -1,0 +1,15 @@
+# Virtual environment
+TaskAppEnv/
+
+# Python compiled files
+__pycache__/
+*.pyc
+
+# Django migrations
+*/migrations/
+
+# SQLite database
+db.sqlite3
+
+# VSCode settings
+.vscode/

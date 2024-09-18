@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tasks List</title>
+        <style>
+            table, th, td {
+              border: solid black;
+              border-collapse: collapse;
+              padding: 8px;
+            }
+            th {
+              background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Tasks List</h1>
+        
+        <table>
+            <tr>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Deleted At</th>
+            </tr>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.task_name }}</td>
+                <td>{{ task.task_description }}</td>
+                <td>{{ task.task_status }}</td>
+                <td>{{ task.created_at }}</td>
+                <td>{{ task.updated_at }}</td>
+                <td>{{ task.deleted_at }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'add_task' %}">Add a New Task</a>
+
+    </body>
+</html>
