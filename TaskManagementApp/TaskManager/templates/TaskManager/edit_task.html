@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="{% static 'TaskManager/css/global.css' %}">
+<link rel="stylesheet" href="{% static 'TaskManager/css/form.css' %}">
+
+</head>
+<body>
+    <h1>Edit Task</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="task_name">Task Name:</label>
+        <input type="text" id="task_name" name="task_name" value="{{ task.task_name }}" required><br><br>
+
+        <label for="task_description">Task Description:</label>
+        <textarea id="task_description" name="task_description" required>{{ task.task_description }}</textarea><br><br>
+
+        <label for="task_status">Task Status:</label>
+        <select id="task_status" name="task_status">
+            <option value="Pending" {% if task.task_status == "Pending" %}selected{% endif %}>Pending</option>
+            <option value="In Progress" {% if task.task_status == "In Progress" %}selected{% endif %}>In Progress</option>
+            <option value="Completed" {% if task.task_status == "Completed" %}selected{% endif %}>Completed</option>
+        </select><br><br>
+
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>
