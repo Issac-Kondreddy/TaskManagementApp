@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'UserAuthentication/css/form.css' %}">
+</head>
+<body>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <h2>Login to Your Account</h2>  <!-- Moved inside the form -->
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+        </form>
+    </div>
+</body>
+</html>

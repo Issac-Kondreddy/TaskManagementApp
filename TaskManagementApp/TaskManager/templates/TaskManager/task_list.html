@@ -7,7 +7,8 @@
         <link rel="stylesheet" href="{% static 'TaskManager/css/task_list.css' %}">
     </head>
     <body>
-        <h1>Tasks List</h1>
+        <h1>Welcome, {{ first_name }}!</h1>
+        <h1>Yours Tasks List</h1>
 
         <div class="container">
             {% for task in tasks %}
@@ -46,5 +47,11 @@
                 <button class="btn-add">Add a New Task</button>
             </form>
         </div>
+        <div style="text-align: right;">
+            <form method="GET" action="{% url 'logout' %}">
+                <button class="btn btn-add">Logout</button>
+            </form>
+        </div>
+        
     </body>
 </html>
