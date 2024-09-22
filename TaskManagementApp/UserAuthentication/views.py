@@ -9,22 +9,23 @@ def auth_view(request):
     login_form = AuthenticationForm()
 
     if request.method == 'POST':
-        if 'login' in request.POST:  # Login form was submitted
+        if 'login' in request.POST:
             login_form = AuthenticationForm(data=request.POST)
             if login_form.is_valid():
                 user = login_form.get_user()
                 login(request, user)
-                return redirect('task_list')  # Redirect to task list
+                return redirect('task_list')  # Ensure this URL name is correct
 
-        elif 'signup' in request.POST:  # Signup form was submitted
-            signup_form = CustomUserCreationForm(request.POST)  # Use CustomUserCreationForm
+        elif 'signup' in request.POST:
+            signup_form = CustomUserCreationForm(request.POST)
             if signup_form.is_valid():
                 user = signup_form.save(commit=False)
                 user.first_name = signup_form.cleaned_data.get('first_name')
                 user.last_name = signup_form.cleaned_data.get('last_name')
-                user.save()  # Save user with first and last name
+                user.save()
                 login(request, user)
-                return redirect('task_list')  # Corrected redirect to task list
+                return redirect('task_list')  # Make sure 'task_list' is a valid named URL pattern
+
 
     return render(request, 'UserAuthentication/auth.html', {
         'signup_form': signup_form,

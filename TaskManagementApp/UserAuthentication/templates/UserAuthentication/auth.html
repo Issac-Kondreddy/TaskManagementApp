@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="auth-container">
+        <h1>Welcome to the Task Management App</h1>  <!-- Welcome heading -->
         <div class="form-box">
             <!-- Toggle Buttons -->
             <div class="toggle-buttons">
@@ -19,8 +20,8 @@
                 {% csrf_token %}
                 <h2>Login</h2>
                 {{ login_form.non_field_errors }}
-                <input type="text" placeholder="Username" name="username">
-                <input type="password" placeholder="Password" name="password">
+                <input type="text" placeholder="Username" name="username" required>
+                <input type="password" placeholder="Password" name="password" required>
                 <a href="#">Forgot password?</a>
                 <button type="submit" name="login">Login</button>
                 <p>Not a member? <a href="#" onclick="showSignup()">Sign up now</a></p>
@@ -31,16 +32,14 @@
                 {% csrf_token %}
                 <h2>Signup</h2>
                 {{ signup_form.non_field_errors }}
-                <input type="text" placeholder="First Name" name="first_name">
-                <input type="text" placeholder="Last Name" name="last_name">
-                <input type="text" placeholder="Username" name="username">
-                <input type="password" placeholder="Password" name="password1">
-                <input type="password" placeholder="Confirm Password" name="password2">
+                <input type="text" placeholder="First Name" name="first_name" required>
+                <input type="text" placeholder="Last Name" name="last_name" required>
+                <input type="text" placeholder="Username" name="username" required>
+                <input type="password" placeholder="Password" name="password1" required>
+                <input type="password" placeholder="Confirm Password" name="password2" required>
                 <button type="submit" name="signup">Sign Up</button>
                 <p>Already a member? <a href="#" onclick="showLogin()">Login now</a></p>
             </form>
-            
-            
         </div>
     </div>
 
