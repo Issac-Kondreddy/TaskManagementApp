@@ -1,29 +1,54 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Task</title>
     <link rel="stylesheet" href="{% static 'TaskManager/css/global.css' %}">
-<link rel="stylesheet" href="{% static 'TaskManager/css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'TaskManager/css/form.css' %}">
 </head>
 <body>
-    <h1>Add a New Task</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <label for="task_name">Task Name:</label>
-        <input type="text" id="task_name" name="task_name" required><br><br>
+    <div class="form-container">
+        <h1 class="form-heading">Add a New Task</h1>
 
-        <label for="task_description">Task Description:</label>
-        <textarea id="task_description" name="task_description" required></textarea><br><br>
+        <!-- Display validation errors if they exist -->
+        {% if errors %}
+            <div class="error-messages">
+                {% for field, messages in errors.items %}
+                    <p>{{ field|capfirst }}: {{ messages.0 }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
 
-        <label for="task_status">Task Status:</label>
-        <select id="task_status" name="task_status">
-            <option value="Pending">Pending</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Completed">Completed</option>
-        </select><br><br>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="task_name">Task Name</label>
+                <input type="text" id="task_name" name="task_name" value="{{ task_name }}" required>
+            </div>
 
-        <button type="submit">Add Task</button>
-    </form>
+            <div class="form-group">
+                <label for="task_description">Task Description</label>
+                <textarea id="task_description" name="task_description" required>{{ task_description }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="task_status">Task Status</label>
+                <select id="task_status" name="task_status">
+                    <option value="Pending" {% if task_status == "Pending" %}selected{% endif %}>Pending</option>
+                    <option value="In Progress" {% if task_status == "In Progress" %}selected{% endif %}>In Progress</option>
+                    <option value="Completed" {% if task_status == "Completed" %}selected{% endif %}>Completed</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Task</button>
+        </form>
+
+        <!-- Back button to return to the task list -->
+        <form action="{% url 'task_list' %}" method="get" style="display:inline;">
+            <button type="submit" class="btn btn-secondary">Back to Tasks</button>
+        </form>
+    </div>
 </body>
 </html>
