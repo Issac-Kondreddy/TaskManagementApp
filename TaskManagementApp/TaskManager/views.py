@@ -95,3 +95,7 @@ class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
     # Filter tasks to show only those of the logged-in user
     def get_queryset(self):
         return Tasks.objects.filter(user=self.request.user)
+
+
+def redirect_to_login(request):
+    return redirect('auth') 

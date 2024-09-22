@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,9 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8_5a7fxnpodbk)=f@jbo390ncq40t+!ez5h9g2@t8qv$vq^&3a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+LOGIN_URL = '/auth/'  # Redirect to your auth view
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+
+
 
 
 # Application definition
@@ -119,11 +123,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Add this line
 STATICFILES_DIRS = [
     BASE_DIR / "TaskManager/static",
     BASE_DIR / "UserAuthentication/static",  # Add this line to include static files from UserAuthentication
 ]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

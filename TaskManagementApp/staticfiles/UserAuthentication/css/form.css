@@ -1,0 +1,84 @@
+/* form.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;  /* Softer background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+form {
+    width: 360px; /* Wider form for more space */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #1a73e8;  /* Google-style blue for focus */
+    box-shadow: 0 0 8px rgba(26, 115, 232, 0.2); /* Subtle glow effect */
+    background-color: #fff;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a73e8; /* Primary blue */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #135ab5; /* Darker blue on hover */
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3); /* Slight shadow on hover */
+}
+
+form p {
+    font-size: 14px;
+    text-align: center;
+    color: #555;  /* Softer text color */
+    margin-top: 15px;
+}
+
+form a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+form a:hover {
+    text-decoration: underline;
+}

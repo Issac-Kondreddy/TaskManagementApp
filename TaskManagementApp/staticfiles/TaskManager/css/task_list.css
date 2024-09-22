@@ -1,0 +1,83 @@
+/* task_list.css */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.task-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    position: relative;
+}
+
+.task-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.task-card p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.task-status {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Add, Edit, Delete Button Styles */
+.btn-add {
+    background-color: #28a745;
+}
+
+.btn-edit {
+    background-color: #007bff;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+/* Task Status Color Coding */
+.status-pending {
+    color: #ffc107;
+}
+
+.status-in-progress {
+    color: #17a2b8;
+}
+
+.status-completed {
+    color: #28a745;
+}
