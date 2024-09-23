@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8_5a7fxnpodbk)=f@jbo390ncq40t+!ez5h9g2@t8qv$vq^&3a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 LOGIN_URL = '/auth/'  # Redirect to your auth view
 
 ALLOWED_HOSTS = ['*']
@@ -82,11 +82,17 @@ WSGI_APPLICATION = 'TaskManagementApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'Issac-362001',
+        'HOST': 'task-management-db.c3amccq2i33t.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
